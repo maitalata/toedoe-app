@@ -1,8 +1,8 @@
 <template>
     <li class="py-3 list-group-item" >
         <div class="d-flex justify-content-start align-items-center">
-            <input class="mt-0 form-check-input completed" type="checkbox" />
-            <div class="ms-2 flex-grow-1" title="Double click the text to edit or remove">
+            <input class="mt-0 form-check-input" :class="completedClass"  type="checkbox" :checked="task.is_completed" />
+            <div class="ms-2 flex-grow-1 " :class="completedClass"  title="Double click the text to edit or remove">
                 <!-- <div class="relative">
                     <input class="editable-task" type="text" />
                 </div> -->
@@ -22,10 +22,14 @@
 </template>
 
 <script setup>
+import { computed } from "vue"
 import IconPencil from "../icons/IconPencil.vue"
 import IconTrash from "../icons/IconTrash.vue"
 
-defineProps({
+const props = defineProps({
     task: Object
 })
+
+const completedClass = computed(() => props.task.is_completed ? 'completed' : '')
+
 </script>
