@@ -70,6 +70,7 @@ export const useTaskStore = defineStore('taskStore', () => {
         const {
             data
         } = await allTasks()
+        console.log(data)
         tasks.value = data.data
     }
 
