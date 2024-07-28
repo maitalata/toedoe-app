@@ -22,11 +22,17 @@ const routes = [{
         path: '/login',
         component: LoginPage,
         name: 'login',
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/register',
         component: RegisterPage,
         name: 'register',
+        meta: {
+            guest: true
+        }
     },
     {
         path: '/summary',
